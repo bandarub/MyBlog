@@ -1,6 +1,6 @@
 @import "./index.scss";
 :root {
-  --primary-font: "Pattaya", sans-serif;
+  --primary-font: "Ubuntu", sans-serif;
   --primary-color: #f19733;
 }
 .App {
@@ -36,7 +36,6 @@
     display: block;
     padding-left: 50px;
     padding-bottom: 10px;
-    // width:10%;
     background-color: var(--primary-color);
     cursor: pointer;
   }
@@ -45,15 +44,15 @@
     position: absolute;
   }
   #collapse:checked ~ li {
-    margin-top: 0;
-    padding-left: 50px;
+    padding-left: 10px;
+    width: 15%;
+    // margin:0 auto;
     opacity: 1;
-    width: 10%;
     background-color: var(--primary-color);
   }
   #collapse:checked + label:before {
     position: relative;
-    opacity: 0.5;
+    opacity: 0.3;
   }
 }
 .homeHeading {
@@ -99,7 +98,6 @@
   grid-gap: 2vw;
 }
 .smallPost {
-  margin: 2vw auto;
   position: relative;
   border: 2px solid #ccc;
   padding-bottom: 2vw;
@@ -115,11 +113,7 @@ ul {
 .smallPost:hover .post-heading {
   color: white;
 }
-.home .search {
-  width: 20%;
-  float: right;
-  margin-right: 50px;
-}
+
 .smallPost a {
   color: Black;
   position: absolute;
@@ -162,8 +156,7 @@ ul {
   width: 70vw;
   margin: 3vw auto;
 }
-.form .input,
-.search {
+.form .input {
   width: 100%;
   margin-top: 3vw;
   background-color: transparent;
@@ -187,6 +180,7 @@ ul {
   color: var(--primary-color);
   font-size: 15px;
   visibility: hidden;
+  cursor: none;
   font-weight: bold;
 }
 .selectMenu {
@@ -285,30 +279,81 @@ button[disabled] {
 ::-webkit-scrollbar-thumb {
   background: var(--primary-color);
 }
-#filter-btn {
+#filterBtn {
   width: 50%;
   margin: 0 auto;
   display: flex;
+  flex-direction: row;
   list-style: none;
   justify-content: space-between;
 }
-#filter-btn input[type="checkbox"] {
+#filterBtn input[type="checkbox"] {
   display: none;
 }
 
-#filter-btn input[type="checkbox"] + label {
+#filterBtn input[type="checkbox"] + label {
+  font-style: italic;
+  font-weight: bold;
   background: transparent;
   cursor: pointer;
 }
 
-#filter-btn input[type="checkbox"]:checked + label {
-  background-color: var(--primary-color);
+#filterBtn input[type="checkbox"]:checked + label {
   // color: white;
   font-weight: bold;
+  color: var(--primary-color);
 }
 
-#filter-btn ul {
+#filterBtn ul {
   list-style: none;
+}
+.search input {
+  outline: none;
+  float: right;
+  margin-right: 20px;
+}
+.search input[type="search"] {
+  -webkit-appearance: textfield;
+  font-family: inherit;
+  font-size: 100%;
+}
+.search input::-webkit-search-decoration,
+.search input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search input[type="search"] {
+  background: transparent
+    url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat
+    9px center;
+  border: solid 1px #ccc;
+  padding: 9px 10px 9px 32px;
+  width: 15px;
+  cursor: pointer;
+
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.search input[type="search"]:focus {
+  width: 200px;
+  background-color: #fff;
+  border-color: var(--primary-color);
+
+  -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+  -moz-box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+  box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+}
+
+.search input:-moz-placeholder {
+  color: #999;
+}
+.search input::-webkit-input-placeholder {
+  color: #999;
 }
 
 /* Handle on hover */
@@ -326,10 +371,17 @@ button[disabled] {
     width: 100%;
     text-align: center;
   }
+
   .collapsableNavigation {
     text-align: center;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+    #collapse:checked ~ li {
+      width: 30%;
+      margin: 0 auto;
+    }
   }
+
   .form input:not(:placeholder-shown) + label,
   input:focus + label,
   .form textarea:not(:placeholder-shown) + label,
@@ -351,10 +403,30 @@ button[disabled] {
   .form input {
     margin-bottom: 30px;
   }
-  .collapsableNavigation label {
-    text-align: center;
-  }
+  .collapsableNavigation label,
   .collapsableNavigation li {
     text-align: center;
+  }
+}
+@media only screen and (max-width: 550px) {
+  #filterBtn {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(70px,1fr));
+    column-gap:6vw;
+    width:60%;
+  }
+  .collapsableNavigation ul {
+    li {
+      opacity: 1;
+    }
+    label {
+      display: none;
+    }
+    #collapse:checked ~ li {
+    font-weight: bold;
+    width:100%;
+    background-color: transparent;
+    }
+
   }
 }

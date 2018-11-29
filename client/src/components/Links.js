@@ -3,7 +3,7 @@ import { HashRouter, Switch, Route } from "react-router-dom";
 
 import Home from "./Homepage";
 import DisplayPost from "./DisplayPost";
-// import About from "./About";
+import About from "./About";
 import Navigation from "./Navigation";
 import Form from "./Form";
 import PostsList from "./postslist";
@@ -67,6 +67,7 @@ const Routing = props => {
               />
             )}
           />
+          <Route exact path="/about" component={About} />
         </div>
       </HashRouter>
     </div>

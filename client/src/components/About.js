@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <div className="aboutApp">
-      <p>
+      <span>
           <h4>Summary</h4>
           <p>This is CRUD aplication.You can add,remove,update and delete the post</p>
           <h4>Technologies used:</h4>
@@ -11,7 +11,7 @@ const About = () => {
           <h4>GitHub Link</h4>
           <a href="https://github.com/bandarub/React-Redux-Posts.git">Please click</a>
 
-      </p>
+      </span>
     </div>
   );
 };

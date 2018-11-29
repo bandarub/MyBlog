@@ -59,7 +59,7 @@ class Form extends Component {
       category: /^[\w+\s]{2,30}$/.test(category)
         ? ""
         : "Please enter Category(must not exceed 20 words)",
-      detail: /^[\w+\s]{2,150}$/.test(detail) ? "" : "Please Enter your Post"
+      // detail: /^[\w+\s]{2,150}$/.test(detail) ? "" : "Please Enter your Post"
     };
     return errors;
   };
@@ -139,9 +139,9 @@ class Form extends Component {
             onBlur={this.handleFocus}
           />
           <label>Write your Post</label>{" "}
-          {this.state.isTouched.detail && errors.detail && (
+          {/* {this.state.isTouched.detail && errors.detail && (
             <span className="errorMsg">{errors.detail}</span>
-          )}
+          )} */}
         </div>
         <div className="btnGrp">
           <button type="submit" disabled={this.isSubmitDisabled(errors)}>

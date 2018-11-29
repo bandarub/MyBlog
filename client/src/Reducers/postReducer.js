@@ -3,8 +3,6 @@ import {
   SAVE_POST,
   DELETE_POST,
   POSTS_LOADING,
-  // DELETE_STUDENT,
-  // STUDENTS_LOADING
 } from "../Actions/types";
 
 const initState = {
@@ -14,10 +12,6 @@ const initState = {
 
 export default function(state = initState, action) {
   switch (action.type) {
-    // case POSTS_LOADING:return{
-    //   ...state.posts,
-    //   loading:true
-    // }
     case GET_POST:
       return {
         ...state,
