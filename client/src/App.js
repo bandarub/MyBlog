@@ -14,12 +14,16 @@ class App extends Component {
   }
   render() {
     const { posts } = this.props.posts;
-    if (posts.length === 0) return <Loader />;
-    else
       return (
         <div className="App">
-          <Routing posts={posts} />
-          <Footer />
+          {posts.length === 0 ? (
+            <Loader />
+          ) : (
+            <div>
+              <Routing posts={posts} />
+              <Footer />
+            </div>
+          )}
         </div>
       );
   }

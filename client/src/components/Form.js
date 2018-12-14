@@ -5,21 +5,35 @@ import * as Types from "../Actions/Actions";
 class Form extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      title: "",
+      category: "",
+      detail: "",
+      isTouched: {
+        title: null,
+        category: null,
+        detail: null
+      }
+    };
+  }
+
+  componentDidMount() {
     let id, selectedPost;
     if (this.props.action === "edit") {
       id = this.props.match.params.postId;
       selectedPost = this.props.getSelectedPost(id);
     }
-    this.state = {
-      title: this.props.action === "add" ? "" : selectedPost.title,
-      category: this.props.action === "add" ? "" : selectedPost.category,
-      detail: this.props.action === "add" ? "" : selectedPost.detail,
+    this.setState({
+      title: !id ? "" : selectedPost.title,
+      category: !id ? "" : selectedPost.category,
+      detail: !id ? "" : selectedPost.detail,
       isTouched: {
-        title: this.props.action === "add" ? false : true,
-        category: this.props.action === "add" ? false : true,
-        detail: this.props.action === "add" ? false : true
+        title: !id ? false : true,
+        category:!id ? false : true,
+        detail: !id ? false : true
       }
-    };
+    });
+
   }
   handlePost = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -58,7 +72,7 @@ class Form extends Component {
         : "Please enter Title(must not excced 30 words)",
       category: /^[\w+\s]{2,30}$/.test(category)
         ? ""
-        : "Please enter Category(must not exceed 20 words)",
+        : "Please enter Category(must not exceed 20 words)"
       // detail: /^[\w+\s]{2,150}$/.test(detail) ? "" : "Please Enter your Post"
     };
     return errors;
