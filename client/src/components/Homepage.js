@@ -50,50 +50,50 @@ class Home extends Component {
       { id: "Refreshment", name: "category", label: "Refreshment" },
       { id: "Work", name: "category", label: "Work" }
     ];
-    if (posts.length === 0)
-      return (
-        <div>
-          <Loader />
-          <h3>No posts fetched</h3>
-        </div>
-      );
-    else
-      return (
-        <div>
-          <div className="home">
-            <form className="search">
-              <input
-                type="search"
-                onChange={this.handleSearch}
-                placeholder="Search Category....."
-              />
-            </form>
-            <div className="headerSection">
-              <ul id="filterBtn">
-                {categories.map((item, i) => (
-                  <Checkbox
-                    key={i}
-                    id={item.id}
-                    name={item.name}
-                    label={item.label}
-                    checked={filter.includes(item.id)}
-                    onChange={this.handleCheckbox}
-                  />
-                ))}
-              </ul>
-            </div>
-            <div className="postSummery">
-              {posts.map(post => (
-                <PostIndex
-                  key={Math.random()}
-                  post={post}
-                  history={this.props.history}
-                />
-              ))}
-            </div>
+    return (
+      <div className="home">
+        <form className="search">
+         <div> <input
+            type="search"
+            onChange={this.handleSearch}
+            placeholder="Search Category....."
+          />
           </div>
+        </form>
+        <div className="headerSection">
+          <ul id="filterBtn">
+            {categories.map((item, i) => (
+              <Checkbox
+                key={i}
+                id={item.id}
+                name={item.name}
+                label={item.label}
+                checked={filter.includes(item.id)}
+                onChange={this.handleCheckbox}
+              />
+            ))}
+          </ul>
         </div>
-      );
+        {posts.length === 0 ? (
+          <div>
+            <Loader />
+            <h3 className="noSearch">
+              No posts fetched. Go to <a href="/">Home</a>
+            </h3>
+          </div>
+        ) : (
+          <div className="postSummery">
+            {posts.map(post => (
+              <PostIndex
+                key={Math.random()}
+                post={post}
+                history={this.props.history}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    );
   }
 }
 

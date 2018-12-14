@@ -1,7 +1,7 @@
 @import "./index.scss";
 :root {
   --primary-font: "Ubuntu", sans-serif;
-  --primary-color: #0F8CB9;
+  --primary-color: #0f8cb9;
 }
 .App {
   position: relative;
@@ -111,6 +111,10 @@ ul {
 }
 .smallPost:hover .post-heading {
   color: white;
+}
+.noSearch {
+  width: 25vw;
+  margin: 0 auto;
 }
 
 .smallPost a {
@@ -279,7 +283,7 @@ button[disabled] {
   background: var(--primary-color);
 }
 #filterBtn {
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -308,8 +312,7 @@ button[disabled] {
 }
 .search input {
   outline: none;
-  float: right;
-  margin-right: 20px;
+  margin-left: 20px;
 }
 .search input[type="search"] {
   -webkit-appearance: textfield;
@@ -328,8 +331,6 @@ button[disabled] {
   border: solid 1px #ccc;
   padding: 9px 10px 9px 32px;
   width: 15px;
-  cursor: pointer;
-
   -webkit-border-radius: 10em;
   -moz-border-radius: 10em;
   border-radius: 10em;
@@ -410,9 +411,9 @@ button[disabled] {
 @media only screen and (max-width: 550px) {
   #filterBtn {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(70px,1fr));
-    column-gap:6vw;
-    width:60%;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    column-gap: 6vw;
+    width: 60%;
   }
   .collapsableNavigation ul {
     li {
@@ -422,10 +423,9 @@ button[disabled] {
       display: none;
     }
     #collapse:checked ~ li {
-    font-weight: bold;
-    width:100%;
-    background-color: transparent;
+      font-weight: bold;
+      width: 100%;
+      background-color: transparent;
     }
-
   }
 }
