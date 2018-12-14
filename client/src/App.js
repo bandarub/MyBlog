@@ -4,7 +4,7 @@ import { getPosts } from "./Actions/Actions";
 import Routing from "./components/Links";
 import Footer from "./components/Footer";
 
-import "./styles.scss";
+import "./styles/styles.scss";
 import Loader from "./components/Loader";
 import Navigation from "./components/Navigation";
 
