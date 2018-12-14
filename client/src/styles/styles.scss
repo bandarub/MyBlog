@@ -1,0 +1,431 @@
+@import "./index.scss";
+:root {
+  --primary-font: "Ubuntu", sans-serif;
+  --primary-color: #0F8CB9;
+}
+.App {
+  position: relative;
+}
+.collapsableNavigation ul {
+  list-style: none;
+  color: white;
+  font-family: var(--primary-font);
+  margin: 0;
+  width: 100%;
+  li {
+    display: block;
+    height: 20px;
+    padding: 5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s;
+    opacity: 0;
+  }
+  label:before {
+    height: 2px;
+    width: 20px;
+    background: #333;
+    display: inline-block;
+    content: "";
+    box-shadow: 0px -5px 0px 0px #333, 0px -10px 0px 0px #333;
+    margin-right: 10px;
+    transition: all 0.5s;
+    position: relative;
+    opacity: 1;
+  }
+  label {
+    display: block;
+    padding-left: 50px;
+    padding-bottom: 10px;
+    background-color: var(--primary-color);
+    cursor: pointer;
+  }
+  input[type="checkbox"] {
+    visibility: hidden;
+    position: absolute;
+  }
+  #collapse:checked ~ li {
+    padding-left: 10px;
+    width: 15%;
+    // margin:0 auto;
+    opacity: 1;
+  }
+  #collapse:checked + label:before {
+    position: relative;
+    opacity: 0.3;
+  }
+}
+.homeHeading {
+  margin: 0;
+  text-align: center;
+  padding: 5px 30px;
+  background-color: var(--primary-color);
+  width: 100vw;
+  color: white;
+  font-family: var(--primary-font);
+}
+.add-post {
+  float: right;
+  align-self: center;
+  justify-self: right;
+  font-size: 30px;
+}
+.fa-plus {
+  color: white;
+  cursor: pointer;
+}
+.fa-plus:hover {
+  color: black;
+}
+.post-heading {
+  background-color: var(--primary-color);
+  padding: 10px;
+}
+.smallPost li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.post-heading .published {
+  justify-self: center;
+  font-size: 1vw;
+}
+.postSummery {
+  width: 80vw;
+  margin: 3vw auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 2vw;
+}
+.smallPost {
+  position: relative;
+  border: 2px solid #ccc;
+  padding-bottom: 2vw;
+}
+ul {
+  padding: 0;
+}
+.smallPost:hover {
+  // margin: 1vw auto;
+  box-shadow: 5px 5px 5px var(--primary-color);
+  border: none;
+}
+.smallPost:hover .post-heading {
+  color: white;
+}
+
+.smallPost a {
+  color: Black;
+  position: absolute;
+  bottom: 1vw;
+  right: 1vw;
+  padding-right: 10px;
+  text-decoration: none;
+}
+.smallPost a:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+.post-category {
+  font-size: 10px;
+  font-style: italic;
+}
+.post-title {
+  font-family: var(--primary-font);
+}
+.post-summary {
+  padding: 10px;
+}
+.navigation a {
+  text-decoration: none;
+}
+.navigation1 {
+  display: grid;
+  width: 50vw;
+  margin: 0 auto;
+  text-align: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 3vw;
+  font-family: var(--primary-font);
+}
+.active {
+  font-weight: bold;
+  color: orange;
+}
+.form {
+  width: 70vw;
+  margin: 3vw auto;
+}
+.form .input {
+  width: 100%;
+  margin-top: 3vw;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: solid black 1px;
+}
+.form .textArea {
+  width: 100%;
+  background-color: transparent;
+  margin-top: 3vw;
+}
+.form div {
+  position: relative;
+  display: block;
+}
+.form label {
+  display: block;
+  position: absolute;
+  padding: 7px 0 0 0;
+  color: var(--primary-color);
+  font-size: 15px;
+  visibility: hidden;
+  cursor: none;
+  font-weight: bold;
+}
+.selectMenu {
+  width: 200px;
+  color: white;
+  height: 35px;
+  margin-top: 30px;
+  overflow: hidden;
+  border-top: #575757 1px solid;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--primary-color);
+}
+.selectMenu option {
+  background-color: transparent;
+  color: black;
+  text-align: center;
+}
+
+.form input:not(:placeholder-shown) + label,
+input:focus + label,
+.form textarea:not(:placeholder-shown) + label,
+textarea:focus + label {
+  top: 0;
+  visibility: visible;
+  transition: 0.5s;
+}
+
+.form .errorMsg {
+  color: red;
+  font-style: italic;
+}
+.btnGrp {
+  width: 15vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2vw;
+}
+.btnGrp button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: var(--primary-font);
+}
+.btnGrp button:hover {
+  background-color: white;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.fullPost,
+.aboutApp {
+  width: 50vw;
+  margin: 3vw auto;
+  border-left: 2px solid var(--primary-color);
+  padding: 15px;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-weight: bold;
+  background-color: var(--primary-color);
+  color: white;
+  opacity: 0.7;
+  font-family: var(--primary-font);
+  text-align: center;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+#filterBtn {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-between;
+}
+#filterBtn input[type="checkbox"] {
+  display: none;
+}
+
+#filterBtn input[type="checkbox"] + label {
+  font-style: italic;
+  font-weight: bold;
+  background: transparent;
+  cursor: pointer;
+}
+
+#filterBtn input[type="checkbox"]:checked + label {
+  // color: white;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+#filterBtn ul {
+  list-style: none;
+}
+.search input {
+  outline: none;
+  float: right;
+  margin-right: 20px;
+}
+.search input[type="search"] {
+  -webkit-appearance: textfield;
+  font-family: inherit;
+  font-size: 100%;
+}
+.search input::-webkit-search-decoration,
+.search input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search input[type="search"] {
+  background: transparent
+    url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat
+    9px center;
+  border: solid 1px #ccc;
+  padding: 9px 10px 9px 32px;
+  width: 15px;
+  cursor: pointer;
+
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.search input[type="search"]:focus {
+  width: 200px;
+  background-color: #fff;
+  border-color: var(--primary-color);
+
+  -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+  -moz-box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+  box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+}
+
+.search input:-moz-placeholder {
+  color: #999;
+}
+.search input::-webkit-input-placeholder {
+  color: #999;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media only screen and (max-width: 938px) {
+  .add-post {
+    justify-self: center;
+    width: 100%;
+    text-align: center;
+  }
+  .homeHeading {
+    width: 100%;
+    text-align: center;
+  }
+
+  .collapsableNavigation {
+    text-align: center;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+    #collapse:checked ~ li {
+      width: 30%;
+      margin: 0 auto;
+    }
+  }
+
+  .form input:not(:placeholder-shown) + label,
+  input:focus + label,
+  .form textarea:not(:placeholder-shown) + label,
+  textarea:focus + label {
+    top: -10px;
+    font-size: 13px;
+  }
+  .fullPost {
+    border: none;
+  }
+  .navigation .btnGrp {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    text-align: center;
+  }
+  .navigation a {
+    margin-top: 3vw;
+    top: 0;
+  }
+  .form input {
+    margin-bottom: 30px;
+  }
+  .collapsableNavigation label,
+  .collapsableNavigation li {
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 550px) {
+  #filterBtn {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(70px,1fr));
+    column-gap:6vw;
+    width:60%;
+  }
+  .collapsableNavigation ul {
+    li {
+      opacity: 1;
+    }
+    label {
+      display: none;
+    }
+    #collapse:checked ~ li {
+    font-weight: bold;
+    width:100%;
+    background-color: transparent;
+    }
+
+  }
+}
