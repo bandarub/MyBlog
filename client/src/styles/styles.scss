@@ -249,7 +249,12 @@ button[disabled] {
   background-color: #cccccc;
   color: #666666;
 }
-
+.fullPost{
+  .title{
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+}
 .fullPost,
 .aboutApp {
   width: 50vw;
@@ -390,6 +395,7 @@ button[disabled] {
     font-size: 13px;
   }
   .fullPost {
+   
     border: none;
   }
   .navigation .btnGrp {

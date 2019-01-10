@@ -83,9 +83,9 @@ class Home extends Component {
           </div>
         ) : (
           <div className="postSummery">
-            {posts.map(post => (
+            {posts.map((post,i) => (
               <PostIndex
-                key={Math.random()}
+                key={i}
                 post={post}
                 history={this.props.history}
               />

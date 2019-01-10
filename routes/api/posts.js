@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-// const posts = require('../../public/data');
+// const posts = require("../../public/data");
 
 //Student Model
 const Post = require("../../models/posts");

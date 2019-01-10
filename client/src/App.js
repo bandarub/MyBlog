@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getPosts } from "./Actions/Actions";
+import { getProfile } from "./Actions/ProfileActions";
 import Routing from "./components/Links";
 import Footer from "./components/Footer";
 
@@ -14,18 +15,18 @@ class App extends Component {
   }
   render() {
     const { posts } = this.props.posts;
-      return (
-        <div className="App">
-          {posts.length === 0 ? (
-            <Loader />
-          ) : (
-            <div>
-              <Routing posts={posts} />
-              <Footer />
-            </div>
-          )}
-        </div>
-      );
+    return (
+      <div className="App">
+        {posts.length === 0 ? (
+          <Loader />
+        ) : (
+          <div>
+            <Routing posts={posts} />
+            <Footer />
+          </div>
+        )}
+      </div>
+    );
   }
 }
 const mapStateToProps = state => {
@@ -36,5 +37,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getPosts }
+  { getPosts}
 )(App);
