@@ -14,8 +14,7 @@ const DisplayPost = props => {
   return (
     <div>
       <div className="fullPost">
-        <h4>Title</h4>
-        <p>{selctedPost.title}</p>
+        <span className="title">{selctedPost.title}</span>
         <h4>Category</h4>
         <p>{selctedPost.category}</p>
         <h4>Content</h4>
@@ -45,6 +44,7 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
 export default connect(
   null,
   mapDispatchToProps

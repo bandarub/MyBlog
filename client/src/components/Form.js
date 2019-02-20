@@ -38,6 +38,7 @@ class Form extends Component {
   handlePost = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
   handleFocus = e => {
     const field = e.target.name;
     this.setState(prevState => ({
@@ -47,6 +48,7 @@ class Form extends Component {
       }
     }));
   };
+  
   handleCategory = e => {
     this.setState({ category: e.target.value });
   };

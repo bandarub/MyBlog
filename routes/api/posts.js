@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-// const posts = require('../../public/data');
+// const posts = require("../../public/data");
 
 //Student Model
 const Post = require("../../models/posts");
@@ -18,6 +18,10 @@ router.get("/", (req, res) => {
       res.json(doc);
     });
 });
+
+// @route GET post
+// @desc get single post
+// @access public
 router.get("/:id", (req, res) => {
   Post.findById(req.params.id).then(doc => {
     res.json(doc);
@@ -60,7 +64,6 @@ router.delete("/:id", (req, res) => {
 //@desc update a post
 //@access public
 router.put("/:id/edit", (req, res) => {
-  console.log(req.body)
   Post.findByIdAndUpdate(req.params.id, { $set: req.body }, function(
     err,
     post

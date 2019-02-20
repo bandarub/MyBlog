@@ -3,10 +3,10 @@ import { HashRouter, Switch, Route } from "react-router-dom";
 
 import Home from "./Homepage";
 import DisplayPost from "./DisplayPost";
+import Profile from "./Profile";
 import About from "./About";
 import Navigation from "./Navigation";
 import Form from "./Form";
-import PostsList from "./postslist";
 
 const Routing = props => {
   const getSelectedPost = id => {
@@ -17,10 +17,10 @@ const Routing = props => {
         foundPost = post;
       }
     }
-    console.log(foundPost);
     return foundPost;
   };
   const { posts } = props;
+  console.log(props);
   return (
     <div>
       <HashRouter>
@@ -67,7 +67,24 @@ const Routing = props => {
               />
             )}
           />
-          <Route exact path="/about" component={About} />
+          <Route
+            exact
+            path="/profile"
+            render={props => (
+              <Profile
+                {...props}
+                {...posts}
+                getSelectedPost={getSelectedPost}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/aboutApp"
+            component = {About}
+            
+          
+          />
         </div>
       </HashRouter>
     </div>

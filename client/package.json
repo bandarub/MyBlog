@@ -2,7 +2,6 @@
   "name": "project1",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://bandarub.github.io/React-Redux-Posts/",
   "dependencies": {
     "axios": "^0.18.0",
     "gh-pages": "^1.2.0",
