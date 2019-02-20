@@ -42,6 +42,17 @@ const Navigation = () => {
             Profile
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/aboutApp"
+            activeStyle={{
+              fontWeight: "bold",
+              color: "black"
+            }}
+          >
+            AboutApp
+          </NavLink>
+        </li>
       </ul>
     </div>
   );

@@ -8,7 +8,6 @@ const initState = {
 export default function(state = initState, action) {
   switch (action.type) {
     case GET_PROFILE:
-      console.log(action);
       return {
         ...state,
         profile: action.payload,

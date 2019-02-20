@@ -45,7 +45,7 @@ class Home extends Component {
     posts = this.filterPosts(posts);
     let { filter } = this.state;
     const categories = [
-      { id: "culture", name: "category", label: "Culture" },
+      { id: "Culture", name: "category", label: "Culture" },
       { id: "Sports", name: "category", label: "Sports" },
       { id: "Refreshment", name: "category", label: "Refreshment" },
       { id: "Work", name: "category", label: "Work" }

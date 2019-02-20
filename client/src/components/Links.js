@@ -3,7 +3,8 @@ import { HashRouter, Switch, Route } from "react-router-dom";
 
 import Home from "./Homepage";
 import DisplayPost from "./DisplayPost";
-import Profile from "./About";
+import Profile from "./Profile";
+import About from "./About";
 import Navigation from "./Navigation";
 import Form from "./Form";
 
@@ -76,7 +77,14 @@ const Routing = props => {
                 getSelectedPost={getSelectedPost}
               />
             )}
-          />{" "}
+          />
+          <Route
+            exact
+            path="/aboutApp"
+            component = {About}
+            
+          
+          />
         </div>
       </HashRouter>
     </div>

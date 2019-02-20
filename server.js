@@ -18,13 +18,13 @@ const profileDb = require("./config/profileKeys").profileURI;
 console.log(db);
 
 //connect to dB
-mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true }
-  )
-  .then(() => console.log("mongodb connected...."))
-  .catch(err => console.log(err));
+// mongoose
+//   .connect(
+//     db,
+//     { useNewUrlParser: true }
+//   )
+//   .then(() => console.log("mongodb connected...."))
+//   .catch(err => console.log(err));
 
 //connect to profile
 mongoose

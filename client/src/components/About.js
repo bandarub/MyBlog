@@ -1,50 +1,27 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getProfile } from "../Actions/ProfileActions";
+import React from "react";
 
-import Loader from "./Loader";
-
-class About extends Component {
-  componentDidMount() {
-    this.props.getProfile();
-  }
-  render() {
-    const { profile } = this.props;
-    const personalInfo = profile.profile[0];
-    return (
-      <div className="aboutApp">
-        {personalInfo === undefined ? (
-          <Loader />
-        ) : (
-          <div>
-            <h4>Profile</h4>
-            <p className="heading">
-              Name:
-              <span>{personalInfo.name}</span>
-            </p>
-            <p>
-              Occupation:
-              <span>{personalInfo.occupation}</span>
-            </p>
-            <p>
-              Bio
-              <span>{personalInfo.bio}</span>
-            </p>
-            <button>Feedback</button>
-          </div>
-        )}
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = state => {
-  return {
-    profile: state.profile
-  };
+const About = () => {
+  return (
+    <div className="aboutApp">
+      <span>
+        <h4>Summary</h4>
+        <p>
+          This is CRUD aplication.You can add,remove,update and delete the post
+        </p>
+        <h4>Technologies used:</h4>
+        <p>
+          <span>Front-End: </span>React,Redux
+        </p>
+        <p>
+          <span>Back-End: </span>Node,MongoDB
+        </p>
+        <h4>GitHub Link</h4>
+        <a href="https://github.com/bandarub/MyBlog" target="blank">
+          Please click
+        </a>
+      </span>
+    </div>
+  );
 };
 
-export default connect(
-  mapStateToProps,
-  { getProfile }
-)(About);
+export default About;
